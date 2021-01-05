@@ -10,28 +10,11 @@ namespace CleanCode.DuplicatedCode
             // Some logic 
             // ...
 
-            int time;
-            int hours = 0;
-            int minutes = 0;
-            if (!string.IsNullOrWhiteSpace(admissionDateTime))
-            {
-                if (int.TryParse(admissionDateTime.Replace(":", ""), out time))
-                {
-                    hours = time / 100;
-                    minutes = time % 100;
-                }
-                else
-                {
-                    throw new ArgumentException("admissionDateTime");
-                }
-
-            }
-            else
-                throw new ArgumentNullException("admissionDateTime");
+            var time = Time.Parse(admissionDateTime);
 
             // Some more logic 
             // ...
-            if (hours < 10)
+            if (time.Hours < 10)
             {
 
             }
@@ -42,9 +25,21 @@ namespace CleanCode.DuplicatedCode
             // Some logic 
             // ...
 
+            var time = Time.Parse(admissionDateTime);
+            // Some more logic 
+            // ...
+            if (time.Hours < 10)
+            {
+
+            }
+        }
+        //Primer Paso
+        /*
+        private static Time GetTime(string admissionDateTime)
+        {
             int time;
-            int hours = 0;
-            int minutes = 0;
+            var hours = 0;
+            var minutes = 0;
             if (!string.IsNullOrWhiteSpace(admissionDateTime))
             {
                 if (int.TryParse(admissionDateTime.Replace(":", ""), out time))
@@ -59,13 +54,37 @@ namespace CleanCode.DuplicatedCode
             }
             else
                 throw new ArgumentNullException("admissionDateTime");
+            return new Time { Hours=hours, Minutes=minutes };
+        }
+        */
 
-            // Some more logic 
-            // ...
-            if (hours < 10)
+        public class Time
+        {
+            public int Hours { get; set; }
+            public int Minutes { get; set; }
+            public static Time Parse(string text)
             {
-
+                int time;
+                var hours = 0;
+                var minutes = 0;
+                if (!string.IsNullOrWhiteSpace(text))
+                {
+                    if (int.TryParse(text.Replace(":", ""), out time))
+                    {
+                        hours = time / 100;
+                        minutes = time % 100;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("admissionDateTime");
+                    }
+                }
+                else
+                    throw new ArgumentNullException("admissionDateTime");
+                return new Time { Hours = hours, Minutes = minutes };
             }
         }
+        //DRY
+        //Don't Repeat Yourself
     }
 }

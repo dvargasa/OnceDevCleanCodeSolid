@@ -6,6 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{160687E6-3541-4856-8182-35844B88AC4D}</ProjectGuid>
     <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CleanCode</RootNamespace>
     <AssemblyName>CleanCode</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
@@ -50,6 +51,9 @@
   <ItemGroup>
     <Compile Include="10 Comments\Comments.cs" />
     <Compile Include="09 DuplicatedCode\DuplicatedCode.cs" />
+    <Compile Include="11 LongMethods\MemoryFileCreator.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="12 FullRefactoring\Example1.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -63,14 +67,12 @@
     <Compile Include="04 OutputParameters\OutputParameters.cs" />
     <Compile Include="02 PoorMethodSignatures\PoorMethodSignatures.cs" />
     <Compile Include="PoorOrderingOfClassMembers\PoorOrderingOfClassMembers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="08 SwitchStatements\Customer.cs" />
     <Compile Include="08 SwitchStatements\MonthlyStatement.cs" />
     <Compile Include="08 SwitchStatements\MonthlyUsage.cs" />
-    <Compile Include="05 VariableDeclarationsAtTheTop\PayCalculator.cs" />
     <Compile Include="Tuples\Tuples.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
+    <Compile Include="05 VariableDeclarationsAtTheTop\PayCalculator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

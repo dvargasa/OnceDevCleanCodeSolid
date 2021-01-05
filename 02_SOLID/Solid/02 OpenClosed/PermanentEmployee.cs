@@ -1,6 +1,4 @@
-﻿using SOLID._02_OpenClosed;
-
-namespace Solid._02_OpenClosed
+﻿namespace Solid._02_OpenClosed
 {
     public class PermanentEmployee : Employee
     {

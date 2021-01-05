@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Solid._3_LSP.Example2.Violation
+namespace Solid._3_LSP.Example2.Solution
 {
-    class Manager : Employee
+    class Manager : Employee, IManager
     {
         public override void CalcularePerHourRate(int rank)
         {

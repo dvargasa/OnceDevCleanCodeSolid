@@ -1,17 +1,13 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-using Solid.DIP.Example1.Solution.Interfaces;
 
-namespace Solid.DIP.Example1.Solution
+namespace Solid._1_SRP.Example1.Solution
 {
-    public class ClientRepository : IClientRepository
+    public class ClientRepository
     {
-        //one responsability (insert client in database)
-        //but one problem remains: don't must know about database - but important isolated
-        //Repository Pattern
         public void AddClient(Client client)
         {
-            using (var cn = new SqlConnection()) //faz sentido SqlConnection nesse caso, pq conexao com BD
+            using (var cn = new SqlConnection())
             {
                 var cmd = new SqlCommand();
 

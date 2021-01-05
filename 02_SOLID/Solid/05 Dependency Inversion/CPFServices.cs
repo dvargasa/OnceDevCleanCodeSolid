@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Solid.DIP.Example1.Violation
+namespace Solid.DIP.Example1.Solution
 {
     internal class CPFServices
     {

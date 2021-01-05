@@ -1,26 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Solid._3_LSP.Example2.Violation
+﻿namespace Solid._3_LSP.Example2.Solution
 {
-    public class Employee
+    public class Employee : BaseEmployee, IManaged
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public Employee Manager { get; set; } = null;
-        public decimal Salary { get; set; }
+        public IEmployee Manager { get; set; } = null;
 
-        public virtual void AssignManager(Employee manager)
+        public void AssignManager(IEmployee manager)
         {
+            //tasks
             Manager = manager;
-        }
-
-        public virtual void CalcularePerHourRate(int rank)
-        {
-            decimal baseAmount = 12.50M;
-
-            Salary = baseAmount + (rank * 2);
         }
     }
 }
